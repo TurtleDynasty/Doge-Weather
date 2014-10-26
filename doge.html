@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<script>
-			var city = getElementById('userCity').value;
+			//var city = document.getElementById("userCity").value;
 			
-			function myFunc(){
+			function myFunc(city){
 
     			var xmlhttp = new XMLHttpRequest();
     			var url = "http://api.openweathermap.org/data/2.5/weather?q="+city.toString();
@@ -12,14 +12,17 @@
       				if (xmlhttp.readyState==4 && xmlhttp.status==200){
         				var myArr = JSON.parse(xmlhttp.responseText);
 		
-						var temp = parseFloat(myArr.main.temp) - 273.15;
-						temp = temp.toFixed(2)
-						temp = temp.toString();
+						var tempMin = parseFloat(myArr.main.temp_min) - 273.15;
+						var tempMax = parseFloat(myArr.main.temp_max) - 273.15;
+						tempMin = tempMin.toFixed(2)
+						tempMin = tempMin.toString();
+						tempMax = tempMax.toFixed(2)
+						tempMax = tempMax.toString();
 		
 						var time = new Date();
 						//var time = "" + getDate() + " - " + getMonth() + " - " + getFullYear();
 		
-						var out = "The weather for " + myArr.name + " is:<br>" + temp + " C (roughly),<br>and " + myArr.weather[0].description + "<br>" + "As of: " + time;
+						var out = "The weather for " + myArr.name + " is:<br>A temperature between " + tempMin + " and " + tempMax + " C,<br>and " + myArr.weather[0].description + "<br>" + "As of: " + time;
 		
         				document.getElementById("result").innerHTML = out;
     				}
@@ -36,11 +39,13 @@
 		<div style='text-align: center;'>
 			<form>
 				<input type="text" id="userCity" placeholder="such location">
-				<button type="button" onclick="myFunc()">Click for weather!</button>
+				<button type="button" onclick="myFunc(document.getElementById('userCity').value)">Click for weather!</button>
 			</form>
 			<div id="result"></div>
 		</div>
 
+		<br><br>
+		
 		<div style="text-align: center; width:50%; margin-left:25%">
 			<div style="display: inline-block;
 						position: relative;
