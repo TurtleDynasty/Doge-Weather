@@ -14,15 +14,19 @@
 		
 						var tempMin = parseFloat(myArr.main.temp_min) - 273.15;
 						var tempMax = parseFloat(myArr.main.temp_max) - 273.15;
-						tempMin = tempMin.toFixed(2)
+						
+						tempMin = ((tempMin * (9/5)) + 32)
+						tempMin = tempMin.toFixed(0)
 						tempMin = tempMin.toString();
-						tempMax = tempMax.toFixed(2)
+						
+						tempMax = ((tempMax * (9/5)) + 32)
+						tempMax = tempMax.toFixed(0)
 						tempMax = tempMax.toString();
 		
 						var time = new Date();
 						//var time = "" + getDate() + " - " + getMonth() + " - " + getFullYear();
 		
-						var out = "The weather for " + myArr.name + " is:<br>A temperature between " + tempMin + " and " + tempMax + " C,<br>and " + myArr.weather[0].description + "<br>" + "As of: " + time;
+						var out = "The weather for " + myArr.name + " is:<br>A temperature between " + tempMin + " and " + tempMax + " F,<br>and " + myArr.weather[0].description + "<br>" + "As of: " + time;
 		
         				document.getElementById("result").innerHTML = out;
     				}
