@@ -29,6 +29,7 @@
 						var out = "The weather for " + myArr.name + " is:<br>A temperature between " + tempMin + " and " + tempMax + " F,<br>and " + myArr.weather[0].description + "<br>" + "As of: " + time;
 		
         				document.getElementById("result").innerHTML = out;
+        				document.getElementById("doge-container").innerHTML = "<object id='doge' data='doge.svg' type='image/svg+xml' width='100%' height='100%' style='display: inline-block; position: absolute; top: 0; left: 0;'> </object>"
     				}
   				}
 
@@ -51,18 +52,13 @@
 		<br><br>
 		
 		<div style="text-align: center; width:50%; margin-left:25%">
-			<div style="display: inline-block;
+			<div id="doge-container" style="display: inline-block;
 						position: relative;
 						width: 100%;
 						padding-bottom: 100%;
 						vertical-align: middle;
 						overflow: hidden;">
-				<object id='doge' data='doge.svg' type='image/svg+xml' width='100%' height='100%' style="display: inline-block;
-																										position: absolute;
-																										top: 0;
-																										left: 0;">
-					
-				</object>
+				<object id='doge' data='doge_plain.svg' type='image/svg+xml' width='100%' height='100%' style='display: inline-block; position: absolute; top: 0; left: 0;'> </object>
 
 			
 			</div>
