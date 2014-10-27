@@ -1,5 +1,4 @@
 <html>
-	
 		<title>Doge Weather</title>
 		<script type="text/javascript">
 			
@@ -27,13 +26,12 @@
 						var time = new Date();
 						//var time = "" + getDate() + " - " + getMonth() + " - " + getFullYear();
 						//formatted output of weather data
-						var out = "The weather for " + myArr.name + " is:<br>A temperature between " + tempMin + " and " + tempMax + " F,<br>and " + myArr.weather[0].description + "<br>" + "As of: " + time;
+						var out = "The weather for " + myArr.name + " is:<br>A temperature between " + tempMin + " and " + tempMax + " F and " + myArr.weather[0].description + "<br>" + "As of: " + time;
 
 
 						//write formatted data and doge
         				document.getElementById("result").innerHTML = out;
         				
-        				renderDoge();
     				}
   				}
 
@@ -42,26 +40,44 @@
 
 				
 			}
-
-			function renderDoge(){
-				// document.getElementById("doge-container").innerHTML = "<object id='doge' data='doge.svg' type='image/svg+xml' width='100%' height='100%' style='display: inline-block; position: absolute; top: 0; left: 0;'> </object>"
-
-        		//begin formatting doge
-        		var dogeXMLtemp = document.getElementById('doge');
-				document.getElementById("result").innerHTML = "dick";
-				var dogeXML = dogeXMLtemp.contentDocument;
-				document.getElementById("result").innerHTML = "butt";
-				dogeXML.getElementById("rainy").style.stroke = "#11FF33";
+			function resetDoge(){
+				document.getElementById("doge-container").innerHTML = "<object id='doge' data='doge.svg' type='image/svg+xml' width='100%' height='100%' style='display: inline-block; position: absolute; top: 0; left: 0;'> </object>";
 			}
+
+			function clearDoge(){
+				var doge = document.getElementById('doge').contentDocument;
+				var artifactPaths = doge.querySelectorAll('g.artifact > path');
+				for(var i=0; i<artifactPaths.length; i++) {
+  			 		artifactPaths[i].style.opacity = "0";
+
+				}
+			}
+
+			function rainyDoge(){
+				
+				
+				var doge = document.getElementById('doge').contentDocument;
+
+				var rainyPaths = doge.querySelectorAll('g.rainy > path');
+				for(var i=0; i<rainyPaths.length; i++) {
+  			 		rainyPaths[i].style.opacity = "0";
+
+				}
+				//document.getElementById("doge-container").data=doge;
+			}
+			function renderDoge(){
+				
+			}
+
 		</script>
 	
-	<body>
+	<body onload="clearDoge()">
 
 		
 		<div style='text-align: center;'>
 			<form>
 				<input type="text" id="userCity" placeholder="such location">
-				<button type="button" onclick="myFunc(document.getElementById('userCity').value)">Click for weather!</button>
+				<button type="button" onclick="myFunc(document.getElementById('userCity').value); resetDoge(); renderDoge();">Click for weather!</button>
 			</form>
 			<div id="result"></div>
 		</div>
