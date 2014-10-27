@@ -789,16 +789,14 @@
        sodipodi:nodetypes="csssssssssssssscsssssssssssscc" />
   </g>
   <g
-     class="rainy"
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Umbrella"
      transform="translate(-20.825031,1021.2028)"
      style="display:inline">
-    <path
+    <path id="rainy"
        style="fill:none;stroke:#000000;stroke-width:8.39506435;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
        d="M 507.48349,-640.67979 186.91267,-90.777358 c 0,0 -56.31651,95.4547195 -108.300967,41.50206 -51.98445,-53.952752 -15.16211,-136.956892 -15.16211,-136.956892 l 0,0"
-       id="path3848"
        inkscape:connector-curvature="0" />
     <path
        style="fill:url(#linearGradient5390);fill-opacity:1;stroke:#000000;stroke-width:1.04938304px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
